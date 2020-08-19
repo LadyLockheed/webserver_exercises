@@ -11,12 +11,14 @@ app.get('/', (req, res)=>{
 
 //övning 2
 app.get('/hello', (req, res)=>{
+    console.log('GET /')
     res.send("Detta är övning 2: Hello world.")
 })
 
 //övning 3
 
 app.get('/index.html', (req, res)=>{
+    console.log('GET /index')
     res.sendFile(__dirname + '/index.html')
 
 })
