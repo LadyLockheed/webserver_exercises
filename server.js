@@ -3,12 +3,26 @@ const app=express()
 
 let port=1337;
 
+//MIDDLEWARE
+
+
+app.use( express.static(__dirname + '/public') );
+
 
 //ROUTES*************
+
+//*övning 3
 app.get('/', (req, res)=>{
-    console.log("GET /")
-    res.send("I never did mind about the little things.")
+    console.log('GET /index')
+    res.sendFile(__dirname + '/public/index.html')
+
 })
+
+
+// app.get('/', (req, res)=>{
+//     console.log("GET / (index.html)")
+//     res.send("I never did mind about the little things.")
+// })
 
 //*övning 2
 app.get('/hello', (req, res)=>{
@@ -16,12 +30,7 @@ app.get('/hello', (req, res)=>{
     res.send("Detta är övning 2: Hello world.")
 })
 
-//*övning 3
-app.get('/index.html', (req, res)=>{
-    console.log('GET /index')
-    res.sendFile(__dirname + '/index.html')
 
-})
 
 //*Övning 4*****************plocka ut valt objekt
 let fruits = ['strawberry', 'rambutan', 'chayote', 'ackee', 'dragon fruit']
